@@ -12,14 +12,21 @@ function updateCardData(user) {
   const card = document.querySelector(".card");
 
   fetch(`https://api.github.com/users/${user}`)
+    
     .then((res) => res.json())
     .then((data) => {
+      // fixes the date string
+      let date = data.created_at
+      let shortDate = date.split("T")[0]
+      let finalDate = shortDate.replace(/[^A-Z0-9]+/ig, " ");
+
+      
       // user data
       // name + image
       let image = data.avatar_url || "Not Available";
       let userName = data.name || data.login || "Not Available";
       let userLogin = data.login || "Not Available";
-      let userJoined = data.created_at || "Not Available";
+      let userJoined = finalDate || "Not Available";
       let userBio = data.bio || "This profile has no bio";
       // fan base
       let userfollowing = data.following || "0";
