@@ -24,7 +24,6 @@ function switchTheme(theme) {
   }
 }
 
-
 //  set theme to dark 
 function handleDarkTheme() {
   darkmodeText.innerText = "Dark";
