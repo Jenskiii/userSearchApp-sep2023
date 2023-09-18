@@ -1,0 +1,13 @@
+@use "../abstracts" as *;
+
+.error-message{
+    display: none;
+    text-wrap: nowrap;
+    color: $color-error-400;
+    font-weight: $font-weight-bold;
+
+    @include mq(small, max){
+       position: absolute;
+       top: -25px;
+    }
+}

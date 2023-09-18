@@ -2,20 +2,21 @@
 @use "typography" as *;
 @use "sizes" as *;
 
-$active-theme: $default;
-$enable-media-query-dark-mode: false;
+$active-theme: $light;
+$enable-media-query-dark-mode: true;
 
 // Contextual
-$color-text-default: $color-neutral-700;
-$color-background-default: $color-primary-100;
-$color-text-interactive-default: $color-accent-400;
-$color-text-interactive-hover: $color-accent-500;
+$color-text-default: $color-accent-500;
+$color-background-default: $color-neutral-200;
+$color-text-interactive-default: $color-accent-600;
+$color-text-interactive-hover: $color-accent-600;
+$color-text-interactive-hover-decoration: underline;
 
 // set to 0 to disable
 $letter-spacing-loose: 0;
 
-$border-radius-1: $size-2;
-$border-radius-2: $size-4;
+$border-radius-1: 0.625rem;
+$border-radius-2: 0.9375rem;
 
 $box-shadow-1: 0px 6px 5px rgb(0, 0, 0, 0.012),
   0px 22px 18px rgb(0, 0, 0, 0.018), 0px 100px 80px rgb(0, 0, 0, 0.03);
@@ -35,116 +36,122 @@ $box-shadow-5: 0px 6px 5px rgb(0, 0, 0, 0.04), 0px 22px 18px rgb(0, 0, 0, 0.06),
 // body
 $body-font-family: $font-family-base;
 $body-font-size: $font-size-400;
-$body-line-height: 1.5;
+$body-line-height: 1.5rem;
 $body-font-weight: $font-weight-default;
 $body-text-color: $color-text-default;
 $body-background-color: $color-background-default;
 
 $link-color: $color-text-interactive-default;
 $link-color-hover: $color-text-interactive-hover;
+$link-decoration-hover: $color-text-interactive-hover-decoration;
 
-$heading-font-family: $font-family-accent;
-$heading-color-default: $color-neutral-900;
+$heading-font-family: $font-family-base;
+$heading-color-default: $color-neutral-700;
 $heading-font-weight: $font-weight-bold;
 $heading-letter-spacing: $letter-spacing-loose;
-$heading-line-height: 1.1;
-$heading-text-transform: uppercase;
+$heading-line-height: normal;
+$heading-text-transform: none;
 
-$heading-1-font-size: $font-size-900;
+$heading-1-font-size: $font-size-800;
 $heading-1-color: $heading-color-default;
-$heading-2-font-size: $font-size-800;
+$heading-2-font-size: $font-size-700;
 $heading-2-color: $heading-color-default;
-$heading-3-font-size: $font-size-700;
+$heading-3-font-size: $font-size-600;
 $heading-3-color: $heading-color-default;
 
 // layout
 $grid-gap: $size-6;
 $flex-group-gap: $size-4;
 
-$hero-padding-block: clamp(15rem, 15vh, 20rem);
-$section-padding-block: clamp(5rem, 10vh, 6rem);
+// $hero-padding-block: clamp(15rem, 15vh, 20rem);
+// $section-padding-block: clamp(5rem, 10vh, 3rem);
 
-$container-min-margin-inline: $size-4;
-$container-max-width: 64rem;
-$container-max-width-narrow: 40rem;
+$container-min-margin-inline: clamp($size-6, 6vw, $size-13);
+$container-min-margin-inline-inner: clamp($size-6, 6vw, $size-10);
+$container-max-width: 45.625rem;
+$container-max-width-tablet: 35.8125rem;
+$container-max-width-narrow: 30.8125rem;
 $container-max-width-wide: 75rem;
 
 // site header
-$site-header-background-color: $color-primary-300;
-$site-header-color: $color-neutral-900;
-$site-header-padding: $size-8 0;
+$site-header-background-color: $color-background-default;
+$site-header-color: $color-accent-500;
+$site-header-padding-small-screen: $size-8 ;
+$site-header-padding-large-screen: 9rem 2.2rem;
 $site-header-margin: 0;
-$site-header-jusitifcation-small-screens: center;
+$site-header-jusitifcation-small-screens: space-between;
 $site-header-jusitifcation-large-screens: space-between;
 $site-header-alignment: center;
 
-//navigation
-$navigation-color: $site-header-color;
-$navigation-color-hover: $color-primary-300;
-$navigation-font-size: $font-size-400;
-$navigation-gap: $size-9;
-$navigation-link-text-decoration: none;
-$navigation-font-family: $body-font-family;
-$navigation-font-weight: $body-font-weight;
+// //navigation
+// $navigation-color: $site-header-color;
+// $navigation-color-hover: $color-primary-300;
+// $navigation-font-size: $font-size-400;
+// $navigation-gap: $size-9;
+// $navigation-link-text-decoration: none;
+// $navigation-font-family: $body-font-family;
+// $navigation-font-weight: $body-font-weight;
 
-// site footer
-$footer-background-color: $color-primary-300;
-$footer-text-color: $color-primary-900;
-$footer-link-color: $color-neutral-100;
-$footer-link-color-hover: $color-primary-200;
-$footer-link-font-family: $font-family-accent;
-$footer-link-text-decoration: none;
+// // site footer
+// $footer-background-color: $color-primary-300;
+// $footer-text-color: $color-primary-900;
+// $footer-link-color: $color-neutral-100;
+// $footer-link-color-hover: $color-primary-200;
+// $footer-link-font-family: $font-family-accent;
+// $footer-link-text-decoration: none;
 
 // buttons
 $button-font-family: $body-font-family;
-$button-font-size: $font-size-400;
+$button-font-size: $font-size-550;
 $button-font-weight: $font-weight-bold;
-$button-text-transform: uppercase;
-$button-padding: 0.75em 2em;
+$button-text-transform: none;
+$button-padding: 0.7em 1em;
 $button-border: 0;
 $button-border-radius: $border-radius-1;
 
-$button-accent-color: $color-neutral-100;
-$button-accent-background: $color-accent-400;
-$button-accent-color-hover: $color-neutral-100;
-$button-accent-background-hover: $color-accent-500;
-$button-primary-color: $color-neutral-100;
-$button-primary-background: $color-primary-700;
+$button-primary-color: $color-neutral-000;
+$button-primary-background: $color-accent-400;
 $button-primary-color-hover: $color-neutral-100;
-$button-primary-background-hover: $color-primary-800;
+$button-primary-background-hover: $color-accent-300;
+$button-primary-height: 3rem;
+
+// icons
+$icon-default-color: $color-accent-500;
+
 
 // cards
 $card-flow-spacing: $size-2;
-$card-padding: $size-8;
-$card-shadow: $box-shadow-1;
+$card-padding: $size-6;
+$card-padding-large-screen: 2.75rem;
+$card-shadow: none;
 $card-border-radius: $border-radius-2;
-$card-background-default: $color-primary-100;
+$card-background-default: $color-neutral-100;
 $card-color-default: $body-text-color;
 $card-font-family: $body-font-family;
-$card-line-height: 1.25;
-$card-heading-color-default: $card-color-default;
-$card-heading-font-size: $font-size-600;
+$card-line-height: normal;
+$card-heading-color-default: $heading-color-default;
+$card-heading-font-size: $font-size-700;
 
-// forms
-$form-label-color: $body-text-color;
-$form-label-font-family: $body-font-family;
-$form-label-font-weight: $font-weight-bold;
-$form-label-font-size: $body-font-size;
+// darkmode
+$darkmode-icon-color-default: $color-accent-500;
+$darkmode-icon-color-hover: $color-neutral-darkmode;
 
-$form-input-color: $body-text-color;
-$form-input-font-family: $body-font-family;
-$form-input-font-weight: $font-weight-semi-bold;
-$form-input-font-size: $body-font-size;
-$form-input-background-color: $color-neutral-100;
-$form-input-border-default: 3px solid $color-primary-200;
-$form-input-border-focus: 3px solid $color-primary-400;
-$form-input-padding: $size-3;
-$form-input-border-radius: $border-radius-1;
-$form-input-outline: $form-input-outline;
+// search-bar
+$search-bar-background-color: $color-neutral-100;
+$search-bar-border-radius: $border-radius-2;
+$search-bar-background-color: $color-neutral-100;
+$search-bar-justification: space-between;
+$search-bar-padding-small-screen: .4rem;
+$search-bar-padding-medium-screen: .6rem;
+$search-bar-wrapper-gap: clamp(.56rem, 1vw, 1.5rem);
 
-$form-placeholder-color: $color-primary-300;
-$form-placeholder-font-family: $form-input-font-family;
-$form-placeholder-font-weight: $form-input-font-weight;
-$form-placeholder-font-size: $body-font-size;
+$search-bar-input-color: $color-neutral-800;
+$search-bar-input-background-color: $color-neutral-100;
+$search-bar-input-font-size: $font-size-575;
+$search-bar-input-border: none;
+$search-bar-input-outline: none;
 
-$form-group-spacing: 0.5rem;
+$search-bar-input-placeholder-font-size: $font-size-575;
+$search-bar-input-placeholder-font-family:$body-font-family;
+$search-bar-input-placeholder-font-weight:$body-font-weight;
+$search-bar-input-placeholder-color:$color-text-default;

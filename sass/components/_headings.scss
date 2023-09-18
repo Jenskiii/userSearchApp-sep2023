@@ -10,7 +10,7 @@
   @include heading(
     $heading-2-font-size,
     $heading-2-color
-  );
+  )
 }
 .heading-3 {
   @include heading(

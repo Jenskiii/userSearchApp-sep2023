@@ -1,0 +1,21 @@
+@use "../abstracts" as *;
+
+.darkmode {
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+
+  // hover animations for darkmode text + logo
+  @include transition(color, ease-in);
+  svg {
+    @include transition(fill, ease-in);
+  }
+  // changes color of svg when div is hoveres
+  &:is(:hover, :active) svg {
+    fill: $darkmode-icon-color-hover;
+  }
+// changes text color on div hover
+  &:is(:hover, :active) {
+    color: $darkmode-icon-color-hover;
+  }
+}

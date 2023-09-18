@@ -1,0 +1,11 @@
+@use "../abstracts" as *;
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: $icon-default-color;
+ 
+  &-search {
+    fill: $color-accent-400;
+  }
+  
+}

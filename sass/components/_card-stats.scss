@@ -1,0 +1,20 @@
+@use "../abstracts" as *;
+
+.card-stats{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    place-items: center;
+    padding-inline: .9rem;
+    height: 5.3125rem;
+    text-align: center;
+
+    @include mq(small){
+        text-align: left;
+    }
+    
+    & > div {
+        display: grid;
+        row-gap: .5rem;
+    }
+}

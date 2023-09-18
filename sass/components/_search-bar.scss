@@ -1,0 +1,41 @@
+@use "../abstracts" as *;
+
+.search-bar {
+  display: flex;
+  position: relative;
+  justify-content: $search-bar-justification;
+  background-color: $search-bar-background-color;
+  border-radius: $search-bar-border-radius;
+  padding: $search-bar-padding-small-screen;
+  @include mq(medium) {
+    padding: $search-bar-padding-medium-screen;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: $search-bar-wrapper-gap;
+    padding-left: 5%;
+    // prevents button from going into the middle
+    // and makes input full length
+    &-input{
+        width: 100%;
+    }
+
+    input {
+      width: 100%;
+      font-size: $search-bar-input-font-size;
+      color: $search-bar-input-color;
+      border: $search-bar-input-border;
+      outline: $search-bar-input-outline;
+      background-color: $search-bar-input-background-color;
+
+      ::placeholder {
+        font-size: $search-bar-input-placeholder-font-size;
+        color: $search-bar-input-placeholder-color;
+        font-weight: $search-bar-input-placeholder-font-weight;
+        font-family: $search-bar-input-placeholder-font-family;
+      }
+    }
+  }
+}

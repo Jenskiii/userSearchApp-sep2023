@@ -1,24 +1,50 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+const darkmodeSwitcher = document.querySelector(".darkmode");
+const darkmodeText = document.querySelector(".darkmode-text");
+const darkmodeIcon = document.querySelector(".darkmode-icon");
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+let activeTheme = localStorage.getItem("theme");
+darkmodeSwitcher.addEventListener("click", updateTheme);
 
-setupCounter(document.querySelector('#counter'))
+function updateTheme() {
+  const themeToActivate = darkmodeSwitcher.id;
+  switchTheme(themeToActivate);
+}
+
+// updates theme in local storage 
+function switchTheme(theme) {
+  // if theme is dark will update to light
+  if (theme === "dark") {
+    localStorage.setItem("theme", theme);
+    document.body.setAttribute("data-theme", theme);
+    handleLightTheme();
+  } else {  // if theme is light will update to dark
+    localStorage.setItem("theme", theme);
+    document.body.setAttribute("data-theme", theme);
+    handleDarkTheme();
+  }
+}
+
+
+//  set theme to dark 
+function handleDarkTheme() {
+  darkmodeText.innerText = "Dark";
+  // changes svg to moon
+  darkmodeIcon.setAttribute("xlink:href", "#icon-moon");
+  darkmodeSwitcher.id = "dark";
+  activeTheme = localStorage.setItem("theme", "light");
+}
+
+//  set theme to light
+function handleLightTheme() {
+  darkmodeText.innerText = "Light";
+  // changes svg to sun
+  darkmodeIcon.setAttribute("xlink:href", "#icon-sun");
+  darkmodeSwitcher.id = "light";
+  activeTheme = localStorage.setItem("theme", "dark");
+}
+// update theme on page load
+window.onload = () => {
+  if (activeTheme) {
+    switchTheme(activeTheme);
+  }
+};

@@ -6,6 +6,10 @@
 
   width: min(100% - var(--padding), var(--max-width));
   margin-inline: auto;
+
+  @media (min-width: 45em) and (max-width: 65em){
+    --max-width: #{$container-max-width-tablet};
+  }
 }
 
 .container[data-type="narrow"] {
@@ -17,3 +21,6 @@
 .container[data-type="full-bleed"] {
   --max-width: 100%;
 }
+
+
+

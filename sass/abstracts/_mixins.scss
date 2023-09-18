@@ -33,3 +33,7 @@
   font-weight: $heading-font-weight;
   line-height: $heading-line-height;
 }
+
+@mixin transition($element , $animation){
+  transition: $element 275ms $animation;
+}

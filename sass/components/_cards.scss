@@ -1,9 +1,10 @@
 @use "../abstracts/" as *;
 
 .card {
+  position: relative;
   display: grid;
   gap: $card-flow-spacing;
-  padding: $card-padding;
+  padding-block: $card-padding;
   background-color: $card-background-default;
   font-family: $card-font-family;
   color: $card-color-default;
@@ -11,7 +12,48 @@
   box-shadow: $card-shadow;
   border-radius: $card-border-radius;
 
-  &__heading {
-    @include heading($card-heading-font-size, $card-heading-color-default);
+  @include mq(large){
+    padding-block: $card-padding-large-screen;
+
+    .container{
+      margin-right: 3rem;
+    }
   }
+  
+
+
+ &__header{
+  @include mq(large,max){
+    display: flex;
+    gap: clamp(1.25rem, 3vw + 1rem, 2.5rem);
+  }
+
+  img{
+    width: 4.375rem;
+    border-radius: 50%;
+    @include mq(medium){
+      width: 7.3125rem;
+    }
+
+    @include mq(large){
+      position: absolute;
+      left: 5%;
+    }
+    
+  }
+// header information
+  &-information{
+    @include mq(large){
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+ }
+
+ &__bio{
+  line-height: 1.5625rem;;
+ }
+
 }
+
+

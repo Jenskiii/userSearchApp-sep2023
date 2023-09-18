@@ -3,6 +3,7 @@
 .button {
   display: inline-flex;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
   text-decoration: none;
   line-height: 1;
@@ -15,23 +16,19 @@
   border-radius: $button-border-radius;
   transition: 275ms ease;
 
-  &[data-type="accent"] {
-    background: $button-accent-background;
-    color: $button-accent-color;
-
-    &:is(:hover, :focus) {
-      background-color: $button-accent-background-hover;
-      color: $button-accent-color-hover;
-    }
-  }
-
   &[data-type="primary"] {
+    max-width: 5.25rem;
     background: $button-primary-background;
     color: $button-primary-color;
+    height: $button-primary-height;
 
     &:is(:hover, :focus) {
       background: $button-primary-background-hover;
       color: $button-primary-color-hover;
+    }
+
+    @include mq(medium){
+      max-width: 6.625rem;
     }
   }
 }
